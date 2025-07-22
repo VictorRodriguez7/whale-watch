@@ -9,7 +9,9 @@ if(DEFINED ENV{VCPKG_ROOT})
         CACHE STRING "")
 endif()
 
-add_executable(whale-watch src/main.cpp)
+
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS src/*.cpp)
+add_executable(whale-watch ${SOURCES})
 
 find_package(cpr CONFIG REQUIRED)
 find_package(nlohmann_json CONFIG REQUIRED)
