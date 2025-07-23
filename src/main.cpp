@@ -1,5 +1,6 @@
 #include "../include/providers/EthereumProvider.h"
 #include "../include/utils/Logger.h"
+#include "../include/utils/HexUtils.h"
 #include <cstdlib>
 
 int main() {
@@ -35,6 +36,7 @@ int main() {
         Logger::info("   From: " + tx.from);
         Logger::info("   To:   " + (tx.to ? *tx.to : "Contract Creation"));
         Logger::info("   Value: " + tx.value);
+        Logger::info("   Value ETH: " + std::to_string(weiToEth(hexToUint64(tx.value))));
     }
 
     return 0;
