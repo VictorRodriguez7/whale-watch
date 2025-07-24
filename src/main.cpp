@@ -31,15 +31,7 @@ int main() {
     }
 
     Logger::info("Block hash: " + blockOpt->hash);
-    Logger::info("Transactions:");
-
-    for (const auto& tx : blockOpt->transactions) {
-        Logger::info(" - Hash: " + tx.hash);
-        Logger::info("   From: " + tx.from);
-        Logger::info("   To:   " + (tx.to ? *tx.to : "Contract Creation"));
-        Logger::info("   Value: " + tx.value);
-    }
-
+    
     WhaleTracker tracker(0.5); // 0.5 ETH threshold
     auto whaleTxs = tracker.findWhaleTransactions(*blockOpt);
     if (whaleTxs.empty()) {
