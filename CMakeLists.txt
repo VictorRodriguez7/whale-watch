@@ -15,5 +15,5 @@ add_executable(whale-watch ${SOURCES})
 
 find_package(cpr CONFIG REQUIRED)
 find_package(nlohmann_json CONFIG REQUIRED)
-
-target_link_libraries(whale-watch PRIVATE cpr::cpr nlohmann_json::nlohmann_json)
+find_package(Boost REQUIRED CONFIG COMPONENTS multiprecision)
+target_link_libraries(whale-watch PRIVATE cpr::cpr nlohmann_json::nlohmann_json Boost::multiprecision)
