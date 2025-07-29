@@ -3,3 +3,5 @@ build/
 *.o
 .env
 .vscode/
+.dockerignore
+docker-compose.yml
